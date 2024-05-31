@@ -15,17 +15,18 @@ namespace DesafioProjetoHospedagem.Models
 
         public void CadastrarHospedes(List<Pessoa> hospedes)
         {
-            try
+            
+            if (Suite.Capacidade >= hospedes.Count)
             {
-                if (Suite.Capacidade >= hospedes.Count)
-                {
-                    Hospedes = hospedes;
-                }
-            }
-            catch (System.Exception)
-            {                
+                Hospedes = hospedes;
+            }           
+            else
+            {
+                
                 throw new Exception("A quantidade de hóspedes excede a capacidade da suíte.");
-            }
+                    
+            }           
+            
         }
 
         public void CadastrarSuite(Suite suite)
